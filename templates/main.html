@@ -1,0 +1,22 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>БЛОГ</title>
+</head>
+<body>
+<h2 >Записи в блоге</h2>
+{% for post in posts %}
+<p><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></p>
+{% endfor %}
+<form method="post" action="{% url 'main' %}">
+        {% csrf_token %}
+        <label for="title">Название</label><br>
+        <input id='title' name="title" type="text"><br>
+        <label for="text">Описание</label><br>
+        <textarea id='text' name="text" type="text"></textarea><br>
+        <input id='next' type="submit" value="Опубликовать">
+</form>
+</body>
+</html>

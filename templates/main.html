@@ -1,14 +1,16 @@
-
 <!DOCTYPE html>
 <html lang="en">
+{% load static %}
 <head>
     <meta charset="UTF-8">
     <title>БЛОГ</title>
 </head>
+<link href="{% static 'css/style.css'%}" rel="stylesheet">
 <body>
-<h2 >Записи в блоге</h2>
+<main>
+<h2 class="title" >Записи в блоге &#9749;</h2>
 {% for post in posts %}
-<p><a href="{% url 'post_detail' post.id %}">{{ post.title }}</a></p>
+<ul id="tasks"><a class="tasks" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></ul>
 {% endfor %}
 <form method="post" action="{% url 'main' %}">
         {% csrf_token %}
@@ -18,5 +20,6 @@
         <textarea id='text' name="text" type="text"></textarea><br>
         <input id='next' type="submit" value="Опубликовать">
 </form>
+</main>
 </body>
 </html>

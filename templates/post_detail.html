@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>Блог</title>
-</head>
-<link href="{% static 'css/style.css'%}" rel="stylesheet">
-<body>
-    <main>
-        <h2>{{ post.title }}</h2>
-        <h4>{{ post.text }} </h4>
-        <h6>{{ post.created_data }}</h6>
-    </main>
-    <h6 class='bottom'><a href="/">Назад</a></h6>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="row mt-4">
+        <div class="col-sm-12"><h2>{{ post.title }}</h2>
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ post.text }}</h5>
+                        <p class="card-text">{{ post.created_data }}</p>
+                        <a href="/" class="btn btn-primary">Назад</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+{% endblock %}

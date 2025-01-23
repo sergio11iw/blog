@@ -1,25 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-{% load static %}
-<head>
-    <meta charset="UTF-8">
-    <title>БЛОГ</title>
-</head>
-<link href="{% static 'css/style.css'%}" rel="stylesheet">
-<body>
-<main>
-<h2 class="title" >Записи в блоге &#9749;</h2>
-{% for post in posts %}
-<ul id="tasks"><a class="tasks" href="{% url 'post_detail' post.id %}">{{ post.title }}</a></ul>
-{% endfor %}
-<form method="post" action="{% url 'main' %}">
-        {% csrf_token %}
-        <label for="title">Название</label><br>
-        <input id='title' name="title" type="text"><br>
-        <label for="text">Описание</label><br>
-        <textarea id='text' name="text" type="text"></textarea><br>
-        <input id='next' type="submit" value="Опубликовать">
-</form>
-</main>
-</body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+
+
+    <div class="row mt-4">
+        <div class="col-sm-10"><h2>Записи в блоге</h2>
+            {% for post in posts %}
+            <div class="col-10 mb-4">
+                <div class="card">
+                    <div class="card-header">
+                        Запись {{ post.id }}
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title"> {{ post.title }}</h5>
+                        <p class="card-text"> {{ post.text|slice:3 }}...</p>
+                        <a href="{% url 'post_detail' post.id %}" class="btn btn-primary">Открыть</a>
+                    </div>
+                </div>
+
+            </div>
+            {% endfor %}
+        </div>
+
+        <div class="col-sm-2"><h2>Фильтры</h2></div>
+
+    </div>
+
+{% endblock %}

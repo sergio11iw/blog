@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url("https://99px.ru/sstorage/86/2018/07/image_862807181810024395713.gif"); /* Градиентный фон */
+            background-size: cover;
+            color: #333; /* Цвет текста */
+        }
+        header {
+            background: rgba(0, 123, 255, 0.8); /* Полупрозрачный фон для шапки */
+        }
+        .card {
+            background: white; /* Белый фон для карточек постов */
+            border: none; /* Убираем границу карточек */
+        }
+    </style>
+</head>
+<body>
+
+<!-- Шапка -->
+<header class="text-white text-center py-4">
+    <h1>Мой Блог</h1>
+    <p>Добро пожаловать в мой блог!</p>
+</header>
+
+<div class="container mt-4">
+    <div class="row">
+        <!-- Колонка для фильтрации -->
+        <aside class="col-md-3">
+            <h4>Фильтры</h4>
+            <form>
+                <div class="form-group">
+                    <label for="category">Категория</label>
+                    <select class="form-control" id="category">
+                        <option>Все</option>
+                        <option>Технологии</option>
+                        <option>Наука</option>
+                        <option>Искусство</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Дата</label>
+                    <input type="date" class="form-control" id="date">
+                </div>
+                <button type="submit" class="btn btn-primary">Применить</button>
+            </form>
+        </aside>
+
+        <!-- Колонка для постов -->
+        <main class="col-md-9">
+            <h4>Посты</h4>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Заголовок поста 1</h5>
+                    <p class="card-text">Краткое содержание поста 1...</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">Заголовок поста 2</h5>
+                    <p class="card-text">Краткое содержание поста 2...</p>
+                    <a href="#" class="btn btn-primary">Читать далее</a>
+                </div>
+            </div>
+            <!-- Добавьте больше постов по аналогии -->
+        </main>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
